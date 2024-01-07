@@ -1,9 +1,14 @@
 package com.pro2;
 
+import java.sql.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
 
 @Entity
 @Table(name="employee")
@@ -28,8 +33,8 @@ public class Employee {
 	@Column(name="eDep1")
 	private String dep1;
 	
-	@Column(name="eDep2")
-	private String dep2;
+	@Column(name="ePro")
+	private String project;
 	
 	@Column(name="ePick")
 	private String pick;
@@ -39,6 +44,9 @@ public class Employee {
 	
 	@Column(name="eStatus")
 	private String status;
+	
+	@Column(name="eDate")
+	private String date;
 
 	
 	public int getId() {
@@ -89,12 +97,13 @@ public class Employee {
 		this.dep1 = dep1;
 	}
 
-	public String getDep2() {
-		return dep2;
+
+	public String getProject() {
+		return project;
 	}
 
-	public void setDep2(String dep2) {
-		this.dep2 = dep2;
+	public void setProject(String project) {
+		this.project = project;
 	}
 
 	public String getPick() {
@@ -120,10 +129,17 @@ public class Employee {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
 	
-	public Employee(int id, String name, String mail, String desig, String man, String dep1, String dep2, String pick,
-			String drop, String status) {
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public Employee(int id, String name, String mail, String desig, String man, String dep1, String ePro, String pick,
+			String drop, String status, String date) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -131,10 +147,16 @@ public class Employee {
 		this.desig = desig;
 		this.man = man;
 		this.dep1 = dep1;
-		this.dep2 = dep2;
+		this.project = ePro;
 		this.pick = pick;
 		this.drop = drop;
 		this.status = status;
+		this.date = date;
+	}
+	
+	public Employee()
+	{
+		
 	}
 
 }
